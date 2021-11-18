@@ -25,28 +25,18 @@ let cc = 0      // Chocolate Chip
 let sugar = 0   // Sugar Sprinkle
 let total = 0
 // Buttons
-const GingDown = document.querySelector('#minus-gb')
-const GingUp = document.querySelector('#add-gb')
-const chUp = document.querySelector('#minus-cc')
-const chDown = document.querySelector('#add-cc')
-const sugUp = document.querySelector('#minus-sugar')
-const sugDown = document.querySelector('#add-sugar')
-const totUp = document.querySelector('#add-total')
-const totDown = document.querySelector('#minus-total')
 
-// Code to update name display 
-document.getElementById('credit').textContent = `Created by ${yourName}`
 
 // Event listener for clicks on the "+" button for Gingerbread cookies
 document.getElementById('add-gb').addEventListener('click', function(){
-        gb++
-        updateGingerbread(`${gb}`)
+    gb++
+    updateGingerbread(`${gb}`)
 })
 document.getElementById('minus-gb').addEventListener('click', function(){
-    if (gb > 0) {
-        gb--
-    }
-    updateGingerbread(`${gb}`)
+if (gb > 0) {
+    gb--
+}
+updateGingerbread(`${gb}`)
 })
 // TODO: Hook up event listeners for the rest of the buttons
 document.getElementById('minus-cc').addEventListener('click', function(){
@@ -73,8 +63,40 @@ document.getElementById('add-sugar').addEventListener('click', function(){
     updateSugarSprinkle(`${sugar}`)
 })
 
-document.getElementById('qty-total').addEventListener('click', function(){
-    if (sugar > 0) {
-        sugar--
-    }
+// total attempt
+
+document.getElementById('add-sugar').addEventListener('click', function(){
+    total++
+    updateTotal(`${total}`)
 })
+
+document.getElementById('minus-sugar').addEventListener('click', function(){
+    if (total > 0) {
+        total--
+    }
+    updateTotal(`${total}`)
+})
+
+document.getElementById('minus-cc').addEventListener('click', function(){
+    if (total > 0) {
+        total--
+    }
+    updateTotal(`${total}`)
+})
+
+document.getElementById('add-cc').addEventListener('click', function(){
+    total++
+    updateTotal(`${total}`)
+})
+
+document.getElementById('add-gb').addEventListener('click', function(){
+    total++
+    updateTotal(`${total}`)
+})
+
+document.getElementById('minus-gb').addEventListener('click', function(){
+    if (total > 0) {
+        total--
+    }
+    updateTotal(`${total}`)
+    })
